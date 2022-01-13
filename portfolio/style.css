@@ -1,15 +1,14 @@
 * {   
     box-sizing: border-box;
-    font-family: 'Inter', sans-serif;   
+    font-family: 'Inter', sans-serif;  
+    font-size: 20px; 
     color: #fff;
 
    
     
 }
  body {
-    background: url('./assets/img/bg.png');
-    background-repeat: no-repeat;
-    background-position: center 0;
+    background-color: #000;
  }
 
 a {
@@ -17,38 +16,103 @@ a {
 }
 
 
-h1, h2 {
+h1 {
     font-family: 'Merriweather', serif; 
+    font-weight: bold;
+    font-size: 60px;
+}
+
+h2 {
+    font-family: 'Merriweather', serif; 
+    font-weight: bold;
+    font-size: 40px;
+    color: #bdae82;
+    text-align: center;
+
+}
+
+.section-title {
+    /* Чтобы спрятать часть линий, которые 
+    ** будут вылазить за пределы блока */
+    overflow: hidden;
+    margin: 100px auto 60px;
+    width: 700px;
+    height: 80px;
+}
+
+.section-title:before,
+.section-title:after {
+    /* Обязательно указываем пустое свойство content, 
+    ** иначе псевдоэлементы не появятся на сайте */
+    content: "";
+    /* Указываем что наши линии будут строчно-блочные и 
+    ** выравнивание по высоте - по центру */
+    display: inline-block;
+    vertical-align: middle;
+    /* Задаем ширину 100% и выбираем высоту линии, 
+    ** в нашем примере она равна 4 пикселям */
+    width: 100%;
+    height: 2px;
+    /* Добавляем цвет для линии */
+    background-color: #bdae82;
+    /* Добавляем пседоэлемантам возможность изменить 
+    ** позицию линии, для создания отступов от текста */
+    position: relative;
+}
+.section-title:before {
+    /* Смещаем левую линию на 100% влево, чтобы линия 
+    ** встала рядом с текстом слева */
+    margin-left: -100%;
+    /* Указываем в пикселях отступ линии от текста заголовка */
+    left: -20px;
+}
+.section-title:after {
+    /* Смещаем правую линию на 100% вправо, чтобы 
+    ** линия встала рядом с текстом справа */
+    margin-right: -100%;
+    /* Указываем в пикселях отступ линии от текста заголовка */
+    right: -20px;
 }
 
 header {
-    height: 90px;
-    
+    height: 90px;    
 }
 
 main {
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
 }
 
-.header-container {
-   
+.logo {
+    background-image: url('assets/svg/logo.svg');
+    background-size: contain;
+    background-repeat: no-repeat;  
+    transition: 0.3s;
+  }
+  .logo:hover {
+    filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+      contrast(87%);
   }
 
-
-.container {
+  .container {
     width: 1440px;
     margin: 0 auto;
     padding: 0 20px;
 
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;       
+}
 
-    
-    
-   
-    
+.header-container {
+    background: url('assets/img/bg.png');
+    background-repeat: no-repeat;
+    background-position: center 0;
+    width: inherit;
+    margin: inherit;
+    padding: inherit;
+    display: flex;
+    flex-direction: row;
 }
 
 nav {
@@ -62,25 +126,89 @@ nav {
     padding-inline-start: 0px;    
     width: 500px;
     height: 50px;
-    
-
 }
 
 .nav-item {
     list-style-type: none;
-   
-
 }
 
 .nav-item a {
-    background-color:  #f5690c;
+    color:  #fff;
     transition: background-color .7s;
 }
 
 .nav-item a:hover {
-    background-color: #4a19d1 ;
+    color: #bdae82;
+}
+
+.hero-container {
+    height: 820px;
+    background-image: url('assets/img/bg.png');
+    background-position: center -90px;
+    background-repeat: no-repeat;
+
+    width: inherit;
+    margin: inherit;
+    padding: inherit;
+}
+
+.hero-container section {
+    width: 500px;
+    height: 330px;
+    padding-top: 160px;
+    padding-left: 80px;
+}
+
+.hero-container p {
+    line-height: 40px;
+}
+
+.skills-container {
+    height: 482px;
+
+    width: inherit;
+    margin: inherit;
+    padding: inherit;
+}
+
+.skills-items {
+    display: flex;
+    flex-direction: row;
+    width: 1400px;
+    height: 242px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.skills-item {
+    width: 320px;
+    height: 240px;
+    text-align: center;
+    margin-top: auto;
 
 }
+
+.skills-item img {
+    display: block;
+    width: 62px;
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+
+.footer-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+
+
+
 
 
 .nav-link {

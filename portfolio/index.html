@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>portfolio</title>
+    <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="assets/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,54 +13,80 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Merriweather:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="header-container">
+    <header>
         <div class="container">
-            <div>
-                <img src="/portfolio/assets/svg/logo.svg" alt="Logo" width="50px" height="50px">
+            <div class="header-container">
+                <div class="logo">
+                    <img src="assets/svg/logo.svg" alt="Logo" width="50px" height="50px">
+                </div>
+                <nav>
+                    <ul class="nav-list">
+                        <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
+                        <li class="nav-item"><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                        <li class="nav-item"><a href="#video" class="nav-link">Video</a></li>
+                        <li class="nav-item"><a href="#price" class="nav-link">Price</a></li>
+                        <li class="nav-item"><a href="#contacts" class="nav-link">Contacts</a></li>
+                    </ul>
+                </nav>
+                <div><p> en / ru</p></div>
             </div>
-            <nav>
-                <ul class="nav-list">
-                    <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
-                    <li class="nav-item"><a href="#portfolio" class="nav-link">Portfolio</a></li>
-                    <li class="nav-item"><a href="#video" class="nav-link">Video</a></li>
-                    <li class="nav-item"><a href="#price" class="nav-link">Price</a></li>
-                    <li class="nav-item"><a href="#contacts" class="nav-link">Contacts</a></li>
-                </ul>
-            </nav>
-            <div><p> en / ru</p></div>
         </div>
     </header>
 
     <main>
         <div class="container">
-            <section class="section" id="hero">
-                <h1>Alexa Rise</h1>
-            </section>
             
-            <section class="section" id="skills">
-                <h2 class="section-title">Skills</h2>
-            </section>
+                
+                <div class="hero-container">
+                    <section class="section" id="hero">
+                        <h1>Alexa Rise</h1>
+                        <p>Save sincere emotions, romantic feelings and happy moments of life together with professional photographer Alexa Rise</p>
+                    </section>
+                </div>
+                
+                <div class="skills-container">
+                    <section class="section" id="skills">
+                        <h2 class="section-title">Skills</h2>
+                        <div class="skills-items">
+                            <div class="skills-item">
+                                <img src="assets/svg/camera.svg" alt="camera">
+                                <p>1111111</p>
+                            </div>
+                            <div class="skills-item">
+                                <img src="assets/svg/video.svg" alt="video">
+                            </div>
+                            <div class="skills-item">
+                                <img src="assets/svg/image.svg" alt="image">
+                            </div>
+                            <div class="skills-item">
+                                <img src="assets/svg/mic.svg" alt="mic">
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                
             
-            <section class="section" id="portfolio">
-                <h2 class="section-title">Portfoloi</h2>
-            </section>
+                <section class="section" id="portfolio">
+                    <h2 class="section-title">Portfoloi</h2>
+                </section>
             
-            <section class="section" id="video">
-                <h2 class="section-title">Video</h2>
-            </section>
+                <section class="section" id="video">
+                    <h2 class="section-title">Video</h2>
+                </section>
             
-            <section class="section" id="price">
-                <h2 class="section-title">Price</h2>
-            </section>
+                <section class="section" id="price">
+                    <h2 class="section-title">Price</h2>
+                </section>
             
-            <section class="section" id="contacts">
-                <h2 class="section-title">Contact me</h2>
-            </section>
+                <section class="section" id="contacts">
+                    <h2 class="section-title">Contact me</h2>
+                </section>
 
+            
         </div>
     </main>
 
-    <footer>
+    <footer class="footer-container">
         <div class="container">
             <p>&copy; 2022 nsergy</p>
         </div>
