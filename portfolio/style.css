@@ -31,6 +31,14 @@ h2 {
 
 }
 
+.section {
+    /* display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center; */
+
+}
+
 .section-title {
     /* Чтобы спрятать часть линий, которые 
     ** будут вылазить за пределы блока */
@@ -134,7 +142,7 @@ nav {
 
 .nav-item a {
     color:  #fff;
-    transition: background-color .7s;
+    transition: color .7s;
 }
 
 .nav-item a:hover {
@@ -184,7 +192,6 @@ nav {
     width: 320px;
     height: 240px;
     text-align: center;
-    margin-top: auto;
 
 }
 
@@ -194,6 +201,57 @@ nav {
     height: 50px;
     margin-left: auto;
     margin-right: auto;
+}
+
+.skills-item-header {
+    display: block;
+    height: 20px;
+    font-weight: 700;
+    
+    
+}
+
+.skills-item-text {
+    display: block;
+    height: 18px;
+    font-weight: 400;
+}
+
+.portfolio-btns {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 895px;
+    height: 55px;
+    margin-left: auto;
+    margin-right: auto;
+    
+
+}
+
+.btn {
+    width: 220px;
+    height: 55px;
+    box-sizing: border-box;
+    border: 2px solid #bdae82;
+    color: #bdae82;
+    background-color: #000;
+}
+
+.portfolio-items {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 1400px;
+    height: 1145px;
+    justify-content: space-between;
+    flex-wrap: wrap-reverse;
+
+}
+
+.portfolio-item {
+    height: 560px;
+    width: 450px;
 }
 
 
@@ -212,13 +270,5 @@ nav {
 
 
 .nav-link {
-
-}
-
-.section {
-
-}
-
-  .section-title {
 
 }
