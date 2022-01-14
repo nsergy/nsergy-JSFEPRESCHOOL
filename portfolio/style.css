@@ -92,13 +92,12 @@ main {
     justify-content: space-around;
 }
 
-.logo {
-    background-image: url('assets/svg/logo.svg');
+.icons {
     background-size: contain;
     background-repeat: no-repeat;  
     transition: 0.3s;
   }
-  .logo:hover {
+  .icons:hover {
     filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
       contrast(87%);
   }
@@ -226,8 +225,8 @@ nav {
     height: 55px;
     margin-left: auto;
     margin-right: auto;
-    
-
+    margin-bottom: 60px;
+    gap: 5px;
 }
 
 .btn {
@@ -246,7 +245,7 @@ nav {
     height: 1145px;
     justify-content: space-between;
     flex-wrap: wrap-reverse;
-
+    gap: 25px;
 }
 
 .portfolio-item {
@@ -254,6 +253,15 @@ nav {
     width: 450px;
 }
 
+.video-player {
+    background-image: url('assets/img/video-player.jpg');
+    width: 1400px;
+    height: 705px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 
 
