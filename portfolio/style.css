@@ -313,8 +313,41 @@ nav {
     margin-top: 40px;
 }
 
+.contacts-container {
+    background: url('assets/img/contacts.jpg');
+    background-size: auto 700px;
+    background-position: center center;
+    width: 1440px;
+    height: 700px;    
+}
+
+.contacts-items {
+    position: relative;
+    display: flex;
+    width: 450px;
+    height: 445px;
+    top: 60px;
+    left: 970px;
 
 
+    border: #bdae82 solid   2px;
+
+}
+
+.contacts-items::placeholder {
+    font-family: inherit;
+    color: #bdae82;
+    font-size: 20px;
+}
+
+.contacts-items input {
+    width: 450px;
+    height: 50px;
+    background: transparent;
+    font-size: 20px;
+    color: #bdae82;
+}
+  
 .footer-container {
     display: flex;
     flex-direction: row;
