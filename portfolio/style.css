@@ -38,6 +38,10 @@ h3 {
     margin-top: 43px;
 }
 
+button {
+    padding: 0;
+}
+
 .section {
     /* display: flex;
     flex-direction: row;
@@ -146,12 +150,12 @@ nav {
     list-style-type: none;
 }
 
-.nav-item a {
+.link {
     color:  #fff;
     transition: color .7s;
 }
 
-.nav-item a:hover {
+.link:hover {
     color: #bdae82;
 }
 
@@ -328,38 +332,61 @@ nav {
     height: 445px;
     top: 60px;
     left: 970px;
-
-
-    border: #bdae82 solid   2px;
-
 }
 
-.contacts-items::placeholder {
+.contacts-title {
+    display: block;
+    width: 450px;
+    line-height: 80px;
+    text-align: left;
+    margin: 0 0 40px;
+}
+
+.contacts-items input, textarea {
+    display: block;
+    width: 450px;
+    background: transparent;
+    color: #bdae82;
+    border: #bdae82 solid 2px;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.contacts-items input {    
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+.contacts-items textarea {
+    height: 100px;
+    margin-bottom: 30px;
+}
+
+.contacts-items input::placeholder, 
+                textarea::placeholder {
     font-family: inherit;
     color: #bdae82;
     font-size: 20px;
 }
 
-.contacts-items input {
-    width: 450px;
-    height: 50px;
-    background: transparent;
-    font-size: 20px;
-    color: #bdae82;
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-text-fill-color: #bdae82;
+  transition: background-color 0s ease-in-out 9000s;
+}
+
+.footer-container {
+    width: 1440px;
+    height: 150px;    
 }
   
-.footer-container {
+.footer-items {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-
-
-
-
-
-
-.nav-link {
+.footer-item {
 
 }
