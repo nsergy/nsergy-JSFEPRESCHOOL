@@ -221,15 +221,12 @@ nav {
     width: 320px;
     height: 240px;
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    display: block;
 
 }
 
 .skills-item img {
-    display: block;
-    width: 62px;
+    display: block;    
     height: 50px;
     margin-left: auto;
     margin-right: auto;
@@ -250,17 +247,26 @@ nav {
     line-height: 36px;
     width: 280px;
     height: 72px;
+    
+    margin-top: 20px;
+    
 }
 
-.portfolio-btns {
+.porfolio-container {
+
+}
+
+.portfolio-items {
+    
+}
+
+.portfolio-item-btns {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-    margin-left: 272px;
-    margin-right: 272px;
-    margin-bottom: 60px;
+    margin: 60px auto;
     gap: 5px;
 }
 
@@ -290,7 +296,7 @@ nav {
     color: var(--color-white);
 }
 
-.portfolio-items {
+.portfolio-item-img {
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-around;
@@ -308,6 +314,7 @@ nav {
 
 .video-player {
     background-image: url('assets/img/video-player.jpg');
+    background-size: cover;
     height: 705px;
     position: relative;
     display: flex;
@@ -360,9 +367,9 @@ nav {
 }
 
 .contacts-container {
-    background: url('assets/img/contacts.jpg');
+    background-image: url('assets/img/contacts.jpg');
     background-size: auto 700px;
-    background-position: center center;
+    background-position: top left;
     height: 700px; 
     margin-top: 0;   
 }
@@ -370,6 +377,7 @@ nav {
 .contacts-items {
     position: relative;
     display: flex;
+    flex-direction: column;
     width: 450px;
     height: 445px;
     top: 60px;
@@ -545,14 +553,97 @@ input:-webkit-autofill:active {
     }    
 
     .skills-items {
+        justify-content: space-around;
+        padding: 9px 44px 0px 40px;
+        margin: 0;
+
     }
 
     .skills-item {
         width: 300px;
         height: 224px;
-        margin: 9px auto 27px 5.49%;
-    
+        margin-bottom: 36px;    
     }
+
+    .skills-item-header {
+        margin-top: 30px;
+        line-height: 40px;
+        font-weight: bold;
+        font-style: normal;
+    }
+
+    .skills-item-text {
+        line-height: 22px;
+        height: 44px;
+    }
+
+    .portfolio-item-btns {
+        margin: 50px 50px 60px;
+    }
+
+    .video-player {
+        height: 418px;
+        margin: 50px 0 0;
+    }
+
+    .video-player img {
+        height: 75px;
+    }
+
+    .price-items {
+        margin-top: 50px;
+        margin-bottom: 30px;
+        gap: 0;
+    }
+
+    .price-item {
+        width: 420px;
+        margin-bottom: 50px;
+    }
+
+    .contacts-container {
+        height: 600px;
+    }
+
+    .contacts-items {
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        height: 429px;
+    }
+
+    .contacts-title {
+        text-align: center;
+        font-size: 32px;
+        line-height: 64px;
+    }
+
+   
+    .footer-container {
+        height: 190px;
+        flex-direction: column;
+        
+        align-content: center;
+        justify-content: flex-start;
+        
+    }
+
+    .footer-data {
+        margin-top: 14px;
+        margin-bottom: 0;
+    }
+
+    .footer-link {
+        height: 30px;
+
+    }
+
+    .social-list {
+        height: 80px;
+        margin: 0;
+    }
+
+
 
 
 
