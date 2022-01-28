@@ -296,30 +296,25 @@ nav {
     gap: 5px;
 }
 
-.btn-link, .btn-switch {
+.btn-switch, .btn {
     width: 220px;
     height: 55px;
     box-sizing: border-box;
     border: 2px solid  var(--color-gold);    
     padding: 0;
     cursor: pointer;
-}
-
-.btn-link {
-    color: var(--color-black);
-    background-color:  var(--color-gold);
-    transition: color .4s;
-}
-
-.btn-switch {
     color:  var(--color-gold);
     background-color: var(--color-black);
     transition: color .4s;
 }
 
-.btn-link:hover,
-.btn-switch:hover {
+.btn-switch:hover, .btn:hover {
     color: var(--color-white);
+}
+
+.active {
+    color: var(--color-black);
+    background-color:  var(--color-gold);
 }
 
 .portfolio-item-img {
