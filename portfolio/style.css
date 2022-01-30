@@ -16,8 +16,24 @@
     margin: 0;
     font-family: var(--font-family-2);  
     font-size: var(--font-size-2); 
-    color: var(--color-white);
+    
 }
+
+.theme {
+
+}
+
+.ligthTheme {
+    background-color: var(--color-white);
+    color: var(--color-black);
+}
+
+.ligthTheme button:hover {
+  /*   color: var(--color-black); */
+}
+
+
+
 
 html {
     scroll-behavior: smooth;
@@ -25,6 +41,7 @@ html {
 
 body {
     background-color: var(--color-black);
+    color: var(--color-white);
  }
 
 a {
@@ -184,6 +201,24 @@ nav {
 .active-lang {
     color: var(--color-gold);
 }
+
+.thmDay, .thmNight {
+    width: 40px;
+    height: 40px;
+}
+
+.thmDay {
+    display: none;
+}
+
+.thmNight {
+    display: none;
+}
+
+.thmActive {
+    display: block;
+}
+
 
 .menu {
     display: none;

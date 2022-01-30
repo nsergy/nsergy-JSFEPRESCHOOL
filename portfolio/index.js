@@ -1,4 +1,4 @@
-console.log ('68.5 баллов за самопроверку');
+console.log ('Баллов за самопроверку: не посчитано');
 
 import i18Obj from './translate.js';
 
@@ -42,5 +42,37 @@ function getTranslate(lang) {
       value.textContent = i18Obj[lang][value.dataset.i18n];
     }  
   });
+}
 
+
+
+const thmSwitch = document.querySelectorAll('[data-darkLight]');
+
+function toggleThm (elem) {
+  thmSwitch.forEach(element => {
+    element.classList.toggle('thmActive');
+  })
+  console.log(`Включаем тему ${elem.target.dataset.darklight}`)
+  if (elem.target.dataset.darklight === 'toDay') {
+    switchDay();
+    console.log('Включена Светлая тема');
+  }
+  else {
+    console.log('Включена Темная тема')
+    switchNight ();
+  }  
+}
+
+thmSwitch.forEach(item => {item.addEventListener('click', toggleThm);})
+
+function switchDay () {
+  document.querySelectorAll('.theme').forEach(element => {
+    element.classList.add('ligthTheme');
+  })
+}
+
+function switchNight () {
+  document.querySelectorAll('.theme').forEach(element => {
+    element.classList.remove('ligthTheme');
+  })
 }
