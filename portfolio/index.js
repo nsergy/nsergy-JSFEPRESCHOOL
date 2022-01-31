@@ -1,6 +1,37 @@
-console.log ('Баллов за самопроверку: не посчитано');
+console.log ('Баллов за самопроверку: 80');
+console.log('Не выполненные/не засчитанные пункты: сложные эффекты для кнопок при наведении и/или клике');
+console.log('Все оставшиеся пункты выполнены');
 
 import i18Obj from './translate.js';
+let lang = 'en'; 
+let theme = 'toNight';
+
+function getLocalStorage() {
+  if(localStorage.getItem('lang')) {
+    const lang = localStorage.getItem('lang');
+    getTranslate(lang);
+  }
+    
+  if(localStorage.getItem('theme')) {
+    const theme = localStorage.getItem('theme');
+    toggleStartThm(theme);
+  } 
+  
+  if (document.querySelector('.thmActive').dataset.darklight === localStorage.getItem('theme')){
+    document.querySelectorAll('[data-darkLight]').forEach(element => {
+    element.classList.toggle('thmActive');
+  })} 
+
+  if (document.querySelector('.thmActive').dataset.darklight === 'toNight'){
+  document.body.style.background = 'white';}
+
+  if (document.querySelector('.active-lang').dataset.lang !== localStorage.getItem('lang')){
+    document.querySelectorAll('.nav-lang-link').forEach(element => {
+    element.classList.toggle('active-lang');
+  })}    
+}
+window.addEventListener('load', getLocalStorage);
+
 
 const hamburger = document.querySelector('.hamburger');
 
@@ -22,15 +53,16 @@ function toggleBtn(event) {
 btnSwitch.forEach((item) => {item.addEventListener('click', toggleBtn)});
 
 
-const langSwitch = document.querySelectorAll('.nav-lang-link');
+const langSwitch = document.querySelector('.nav-lang-sw');
 
 function toggleLang(event) {
-  langSwitch.forEach(itemLang => {itemLang.classList.remove('active-lang'); });
+  document.querySelectorAll('.nav-lang-link').forEach(itemLang => {itemLang.classList.remove('active-lang'); });
   event.target.classList.add('active-lang');
   getTranslate(event.target.dataset.lang);
+  localStorage.setItem('lang', event.target.dataset.lang);
 }
 
-langSwitch.forEach((item) => {item.addEventListener('click', toggleLang); });
+langSwitch.addEventListener('click', toggleLang);
 
 function getTranslate(lang) {
   const langValue = document.querySelectorAll('[data-i18n]');
@@ -44,21 +76,30 @@ function getTranslate(lang) {
   });
 }
 
-
-
 const thmSwitch = document.querySelectorAll('[data-darkLight]');
 
 function toggleThm (elem) {
   thmSwitch.forEach(element => {
     element.classList.toggle('thmActive');
   })
-  console.log(`Включаем тему ${elem.target.dataset.darklight}`)
+  
   if (elem.target.dataset.darklight === 'toDay') {
-    switchDay();
-    console.log('Включена Светлая тема');
+    switchDay();    
+    localStorage.setItem('theme','toDay');
+    document.body.style.background = 'white';
   }
   else {
-    console.log('Включена Темная тема')
+    switchNight ();
+    localStorage.setItem('theme', 'toNight');
+    document.body.style.background = 'black';
+  }  
+}
+
+function toggleStartThm (theme) {
+  if (theme === 'toDay') {
+    switchDay();
+  }
+  else {
     switchNight ();
   }  
 }

@@ -20,7 +20,7 @@
 }
 
 .theme {
-
+    
 }
 
 .ligthTheme {
@@ -28,7 +28,14 @@
     color: var(--color-black);
 }
 
+.ligthTheme button {
+    color: var(--color-black);
+}
+
 .ligthTheme button:hover {
+    color: var(--color-white);
+    background-color: var(--color-gold);
+
   /*   color: var(--color-black); */
 }
 
@@ -357,7 +364,7 @@ nav {
     padding: 0;
     cursor: pointer;
     color:  var(--color-gold);
-    background-color: var(--color-black);
+    background-color: rgba(0, 0, 0, 0);
     transition: color .4s;
 }
 
@@ -508,6 +515,7 @@ input:-webkit-autofill:active {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    background-color: var(--color-black);
 }
   
 .footer-data {
