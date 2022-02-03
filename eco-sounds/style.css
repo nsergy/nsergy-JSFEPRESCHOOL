@@ -1,3 +1,8 @@
+:root {
+    --background-color: #000;
+    --font-color: #fff;
+}
+
 /* Normalize --start */
 *,
 *::before, 
@@ -25,16 +30,51 @@ h1, h2, h3, h4, h5, h6 {
 }
 /* Normalize --stop */
 
-.header {
-
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--background-color);
+    color: var(--font-color);
 }
 
-.page {
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 60px;
+    margin: 0 20px;
+    padding: 5px 20px;
+}
 
+.main {
+    background-color: rgb(27, 27, 27);
+    flex: 1 1 auto;
 }
 
 .footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    margin: 0 20px;
+    padding: 5px 20px;
+}
 
+.footer-items {
+    display: flex;
+    flex-direction: row;
+}
+
+.footer-item {
+    padding-right: 20px;
+}
+
+.rss-logo {
+    height: 50px;
+    
 }
 
 .container {
