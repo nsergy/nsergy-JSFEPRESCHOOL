@@ -1,6 +1,10 @@
 :root {
     --background-color: #000;
+    --color-logo: #bbac81;
     --font-color: #fff;
+    --font-family: 'Roboto', sans-serif;
+    --font-size: 20px;
+    
 }
 
 /* Normalize --start */
@@ -14,6 +18,7 @@
 }
 a {
     text-decoration: none;
+    color: var(--font-color);
 }
 
 ul, ol, li {
@@ -37,15 +42,43 @@ body {
     justify-content: space-between;
     background-color: var(--background-color);
     color: var(--font-color);
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+
 }
 
 .header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     height: 60px;
-    margin: 0 20px;
+    margin: 0 48px;
     padding: 5px 20px;
+}
+
+.logo {
+    width: 2.5em;
+    filter: invert(26%) sepia(15%) saturate(638%) 
+            hue-rotate(7deg) brightness(92%) contrast(87%);
+    transition: 0.5s;
+}
+
+.logo:hover {
+    filter: none;
+}
+
+.nav-items {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+
+}
+
+.nav-item {
+    padding: 0 20px;
+
 }
 
 .main {
@@ -59,7 +92,7 @@ body {
     justify-content: space-between;
     align-items: center;
     height: 60px;
-    margin: 0 20px;
+    margin: 0 48px;
     padding: 5px 20px;
 }
 
