@@ -4,6 +4,8 @@
     --font-color: #fff;
     --font-family: 'Roboto', sans-serif;
     --font-size: 20px;
+    --filter-color: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+    contrast(87%);
     
 }
 
@@ -19,6 +21,11 @@
 a {
     text-decoration: none;
     color: var(--font-color);
+    transition: .7s;
+}
+
+a:hover {
+    filter: var(--filter-color);
 }
 
 ul, ol, li {
@@ -37,6 +44,7 @@ h1, h2, h3, h4, h5, h6 {
 
 body {
     min-height: 100vh;
+    
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -59,6 +67,7 @@ body {
 
 .logo {
     width: 2.5em;
+    cursor: pointer;
     filter: invert(26%) sepia(15%) saturate(638%) 
             hue-rotate(7deg) brightness(92%) contrast(87%);
     transition: 0.5s;
@@ -72,18 +81,39 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    
-
 }
 
 .nav-item {
     padding: 0 20px;
+    cursor: pointer;
+    transition: .7s;
+}
 
+.nav-item:hover {
+    filter: var(--filter-color);
 }
 
 .main {
-    background-color: rgb(27, 27, 27);
+    background-image: url('./assets/img/forest.jpg');
+    background-size: cover;
+    max-height: calc(100vh - 120px);
+    overflow: hidden;
     flex: 1 1 auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.player-btn {
+    background-size: contain;
+    background-repeat: no-repeat; 
+    height: 8em;
+    transition: .7s;
+}
+
+.player-btn:hover {
+    filter: brightness(80%);
 }
 
 .footer {
