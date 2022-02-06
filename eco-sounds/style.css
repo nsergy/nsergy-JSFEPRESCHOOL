@@ -1,6 +1,6 @@
 :root {
     --background-color: #000;
-    --color-logo: #bbac81;
+    --color-active: #bbac81;
     --font-color: #fff;
     --font-family: 'Roboto', sans-serif;
     --font-size: 20px;
@@ -68,12 +68,14 @@ body {
 .logo {
     width: 2.5em;
     cursor: pointer;
-    filter: invert(26%) sepia(15%) saturate(638%) 
-            hue-rotate(7deg) brightness(92%) contrast(87%);
     transition: 0.5s;
 }
 
 .logo:hover {
+    filter: var(--filter-color);
+}
+
+.logo.active:hover {
     filter: none;
 }
 
@@ -90,10 +92,15 @@ body {
 }
 
 .nav-item:hover {
-    filter: var(--filter-color);
+    color: var(--color-active);
 }
 
-.main {
+.active {
+    filter: var(--filter-color);
+
+}
+
+.main, #main{
     background-image: url('./assets/img/forest.jpg');
     background-size: cover;
     max-height: calc(100vh - 120px);
@@ -113,7 +120,8 @@ body {
 }
 
 .player-btn:hover {
-    filter: brightness(80%);
+    filter: brightness(80%);    
+    transform: rotate3d(1, 2.0, 3.0, 360deg);
 }
 
 .footer {
@@ -137,9 +145,5 @@ body {
 
 .rss-logo {
     height: 50px;
-    
-}
-
-.container {
     
 }
