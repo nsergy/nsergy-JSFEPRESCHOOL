@@ -5,8 +5,7 @@
     --font-family: 'Roboto', sans-serif;
     --font-size: 20px;
     --filter-color: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
-    contrast(87%);
-    
+    contrast(87%);    
 }
 
 /* Normalize --start */
@@ -18,6 +17,7 @@
     border: 0;
     box-sizing: border-box;
 }
+
 a {
     text-decoration: none;
     color: var(--font-color);
@@ -43,8 +43,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Normalize --stop */
 
 body {
-    min-height: 100vh;
-    
+    min-height: 100vh;    
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -52,7 +51,6 @@ body {
     color: var(--font-color);
     font-family: var(--font-family);
     font-size: var(--font-size);
-
 }
 
 .header {
@@ -97,7 +95,6 @@ body {
 
 .active {
     filter: var(--filter-color);
-
 }
 
 .main, #main{
@@ -144,6 +141,5 @@ body {
 }
 
 .rss-logo {
-    height: 50px;
-    
+    height: 50px;    
 }
