@@ -1,5 +1,9 @@
 :root {
     --background-color: #000;
+    --header-background-color: #077D99;
+    --main-background-color: #238B49;
+    --button-color: #024C68;
+    --button-active-color: #62B1D0;
     --active-color: #bbac81;
     --font-color: #fff;
     --font-family: 'Roboto', sans-serif;
@@ -65,23 +69,55 @@ a:hover {
     margin: 0 48px;
     padding: 5px 20px;   
     
-    background-color: rgb(133, 88, 30);
+    background-color: var(--header-background-color);
 }
 
 .main {
     background-size: cover;
+    background-color: var(--main-background-color);
     max-height: calc(100vh - 120px);
     overflow: hidden;
     flex: 1 1 auto;
     position: relative;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center; 
     margin: 0 48px;
-
-    background-color: rgb(165, 165, 48);
+    
 }
 
+.image  {
+    height: 35vh;
+    margin-bottom: 20px;    
+}
+
+.button {
+    height: 3em;
+    width: 15em;
+    border-radius: .5em;    
+    background-image: linear-gradient(to right, var(--button-active-color) 0%, var(--button-color) 51%, var(--button-active-color) 100%);
+    box-shadow: 0 0 40px 40px var(--button-color) inset, 0 0 0 0 var(--button-color);
+    font-weight: bolder;
+    font-size: .9em;
+    color: var(--font-color);
+    transition: .15s ease-in-out;
+    margin-bottom: 20px;
+}
+
+.button:hover {
+    box-shadow: 0px 0px transparent, 0px 5px 10px rgba(0,0,0,0.25);
+    /*color: var(--button-active-color);*/
+}
+
+.button:active {
+    transform: translateY(3px);    
+    box-shadow: 0 0 10px 0 #4830F0 inset, 0 0 10px 4px #7cbbb0;
+}
+
+.jokes {
+    padding: 10px;
+}
 
 
 .footer {
