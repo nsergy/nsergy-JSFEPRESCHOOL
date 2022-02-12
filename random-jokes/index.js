@@ -1,16 +1,41 @@
 console.log("random-jokes");
 
-async function getQuotes() {  
-    const res = await fetch('https://api.icndb.com/jokes/random');  //С сайта
-    //const res = await fetch('./assets/quotes_ru.json');   //Из файла
-    const data = await res.json(); 
-    console.log(data);
-    console.log(data.value.joke); //С сайта
-    //console.log(data[0].text);  //Из файла
-    outputJoke(data.value.joke);
-  }
-  getQuotes();
+function getLocalStorage() {
+    if (localStorage.getItem('lang')) {
+        const lang = localStorage.getItem('lang');
+    }
 
+    if (localStorage.getItem('lang') === 'ru') {
+        document.querySelector('.button').textContent = 'Нажми меня';
+      }
+      else {document.querySelector('.button').textContent = 'Push me';}
+
+    lang.forEach(element => {element.classList.remove('active-lang');});
+    lang.forEach(element => {
+        if (element.dataset.lang === localStorage.getItem('lang')) {
+            element.classList.add('active-lang');
+        }
+    });
+    getQuotes();    
+}
+
+window.addEventListener('load', getLocalStorage);
+
+async function getQuotes() {  
+    if (localStorage.getItem('lang') === 'en') {
+        const res = await fetch('https://api.icndb.com/jokes/random');  //С сайта
+        const data = await res.json();
+        outputJoke(data.value.joke);
+    }
+    if (localStorage.getItem('lang') === 'ru') {
+        const res = await fetch('./assets/quotes_ru.json');   //Из файла
+        const data = await res.json(); 
+        outputJoke(data[10].text);
+    }
+  }
+  //getQuotes();
+
+  document.querySelector('.button').addEventListener('click', getQuotes);
   
   function outputJoke(data) {
     document.querySelector('.jokes').textContent = data;
@@ -18,16 +43,23 @@ async function getQuotes() {
 
   const lang = document.querySelectorAll('.lang-link');
 
-  function toggleLang() {
-      console.log('сброс языка???');
-      lang.forEach(element => {
-          element.classList.remove('active-lang');
-      })
+  function toggleLang(event) {
+      if (event.target.dataset.lang === localStorage.getItem('lang')) {return;}
+      lang.forEach(element => {element.classList.remove('active-lang');});
+      event.target.classList.add('active-lang');
+      localStorage.setItem('lang', event.target.dataset.lang);
+
+      if (localStorage.getItem('lang') === 'ru') {
+        document.querySelector('.button').textContent = 'Нажми меня';
+      }
+      else {document.querySelector('.button').textContent = 'Push me';}
+      
+      getQuotes();
   }
 
-  lang.forEach(item => {item.addEventListener('click', toggleLang())});
+  lang.forEach(item => {item.addEventListener('click', toggleLang)});
 
-  document.querySelector('.button').addEventListener('click', getQuotes);
+  
 
 
 
