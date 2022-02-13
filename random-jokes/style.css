@@ -91,12 +91,14 @@ a:hover {
     justify-content: center;
     align-items: center; 
     margin: 0 48px;
-    
+    transition-property: background-color;
+    transition-duration: 3s;    
 }
 
 .image  {
     height: 35vh;
-    margin-bottom: 20px;    
+    margin-bottom: 20px;
+    transition: 1s;
 }
 
 .button {
@@ -110,22 +112,23 @@ a:hover {
     color: var(--font-color);
     transition: .15s ease-in-out;
     margin-bottom: 20px;
+    text-shadow: 1px 1px #732372, 1px -1px #732372, -1px 1px #732372, -1px -1px #732372, 3px 3px 6px rgba(0,0,0,.5);
 }
 
 .button:hover {
-    box-shadow: 0px 0px transparent, 0px 5px 10px rgba(0,0,0,0.25);
-    /*color: var(--button-active-color);*/
-}
+    box-shadow: 0px 0px transparent, 0px 5px 10px rgba(0,0,0,0.25);}
 
 .button:active {
     transform: translateY(3px);    
-    box-shadow: 0 0 10px 0 #4830F0 inset, 0 0 10px 4px #7cbbb0;
+    box-shadow: 0 0 10px 0 #4830F0 inset, 0 0 10px 4px #7cbbb0;    
 }
 
 .jokes {
+    height: 4em;
     padding: 10px;
+    text-align:  center;
+    text-shadow: 1px 1px #732372, 1px -1px #732372, -1px 1px #732372, -1px -1px #732372, 3px 3px 6px rgba(0,0,0,.5);
 }
-
 
 .footer {
     display: flex;
