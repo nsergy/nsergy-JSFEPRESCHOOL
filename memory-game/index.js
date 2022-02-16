@@ -2,6 +2,10 @@ console.log('memory-game');
 
 let deck = []; // Массива карт (сложность игры)
 let levelGame = 0;
+let playingField = document.getElementById('playing-field');
+let memoryCard = document.getElementById('memory-card');
+let cardFace = document.getElementById('card-face');
+let cardShirt = document.getElementById('card-shirt');
 
 window.addEventListener('load', restoreSetting);
 
@@ -36,4 +40,6 @@ function getLevelGame (element) {
 
 function setDeckSize(levelGame) {
     console.log('Выбрана игра на ' + levelGame + ' карточек');
+    const img1 = `<img class="card-face" src="./assets/svg/shirt/shirt2.svg" alt="image">`;
+    playingField.insertAdjacentHTML('beforeend', `<div class="memory-card">${img1}</div>`);
 }
