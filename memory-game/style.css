@@ -94,6 +94,11 @@ a:hover {
 
 .nav-item:hover {
     filter: var(--filter-color);
+    cursor: pointer;
+}
+
+.active {
+    filter: var(--filter-color);
 }
 
 .main {
