@@ -33,13 +33,38 @@ document.querySelectorAll('.nav-item').forEach(item => {item.addEventListener('c
 function getLevelGame (element) {
     resetActiveItem();
     element.target.classList.add('active');
+    clearDesk();
     levelGame = element.target.dataset.level;
     localStorage.setItem('levelGame', levelGame);
     setDeckSize(levelGame);
 }
 
 function setDeckSize(levelGame) {
-    console.log('Выбрана игра на ' + levelGame + ' карточек');
-    const img1 = `<img class="card-face" src="./assets/svg/shirt/shirt2.svg" alt="image">`;
-    playingField.insertAdjacentHTML('beforeend', `<div class="memory-card">${img1}</div>`);
+    console.log('Выбрана игра на ' + levelGame + ' карточек');  
+    let i = 0;
+    while (i < localStorage.getItem('levelGame')) {              
+        const face = `<img class="card-face" src="./assets/svg/face/4.svg" alt="image">`;
+        const shirt = `<img class="card-shirt" src="./assets/svg/shirt/shirt2.svg" alt="image">`;
+        playingField.insertAdjacentHTML('beforeend', `<div class="memory-card">${face}${shirt}</div>`);
+        i++;
+    }
 }
+
+function clearDesk() {
+    let element = document.getElementById('playing-field');
+    while (element.firstChild) {
+        element.removeChild(element.firstChild);
+    }
+}
+
+const cards = document.querySelectorAll('.playing-field');
+
+function flipCard(event) {
+    //console.log(event.target);
+    if (!event.target.matches('img')) return;
+    //console.log('flip');
+    //console.log(event.target.parentNode);
+    event.target.parentNode.classList.toggle('flip');
+}
+
+cards.forEach(card => {card.addEventListener('click', flipCard)});

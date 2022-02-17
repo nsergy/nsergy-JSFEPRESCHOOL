@@ -124,18 +124,52 @@ a:hover {
     height: 400px;
     width: 600px;
     border-radius: 10px;
+    perspective: 800px;
 }
 
-.memory-card {
-    background-color: var(--background-color4);
+.memory-card {    
     height: 30%;
-    width: 15%;
+    width: 15%;    
+    margin: 10px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform .5s;
+    
+    
 }
 
-.card-face {
+/*.memory-card:hover {
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, .3);
+    border-radius: 10px;
+    transform: scale(1.05);
+    
+}*/
+
+.memory-card:active {
+    transform: scale(.95);    
+}
+
+.flip {
+    transform: rotateX(180deg);
+}
+
+.card-face, .card-shirt {
+    background-color: var(--background-color4);
+    border-radius: 10px;
     height: 100%;
     width: 100%;
     object-fit: cover;
+    position: absolute;
+    backface-visibility: hidden;
+}
+
+.card-shirt:active {
+    transform: scale(1);  
+}
+
+.card-face {
+    transform: rotateY(180deg);
+    transform: rotateX(180deg);
 }
 
 .card-shirt {
