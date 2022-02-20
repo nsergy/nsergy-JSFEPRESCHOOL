@@ -1,7 +1,7 @@
 console.log('memory-game');
 
-let deck = []; // Массива карт (сложность игры)
-let levelGame = 0;
+let deck = []; // Массива карт
+let levelGame = 0; // Сложность игры
 let playingField = document.getElementById('playing-field');
 let memoryCard = document.getElementById('memory-card');
 let cardFace = document.getElementById('card-face');
@@ -41,13 +41,18 @@ function getLevelGame (element) {
 
 function setDeckSize(levelGame) {
     console.log('Выбрана игра на ' + levelGame + ' карточек');  
+    getArray();
+    console.log(deck);
+    shuffleDeck();
+    console.log(deck);
     let i = 0;
     while (i < localStorage.getItem('levelGame')) {              
-        const face = `<img class="card-face" src="./assets/svg/face/4.svg" alt="image">`;
+        const face = `<img class="card-face" src="./assets/svg/face/${deck[i]}.svg" alt="image">`;
         const shirt = `<img class="card-shirt" src="./assets/svg/shirt/shirt2.svg" alt="image">`;
         playingField.insertAdjacentHTML('beforeend', `<div class="memory-card">${face}${shirt}</div>`);
         i++;
     }
+    
 }
 
 function clearDesk() {
@@ -68,3 +73,19 @@ function flipCard(event) {
 }
 
 cards.forEach(card => {card.addEventListener('click', flipCard)});
+
+function getArray () {
+    deck = [];
+    for (let j = 0; j < 2; j++) {
+        for (let i = localStorage.getItem('levelGame') / 2; i > 0; i--) {
+            deck.unshift(i);
+        }
+    }
+}
+
+function shuffleDeck() {
+    for (let i = deck.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        [deck[i], deck[j]] = [deck[j], deck[i]];
+    }
+}
