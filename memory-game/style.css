@@ -15,7 +15,7 @@
 
 
     --header-background-color: #077D99;
-    --main-background-color: #238B49;
+    --main-background-color: #3abb59;
     --button-color: #024C68;
     --button-active-color: #62B1D0;    
         
@@ -79,7 +79,7 @@ a:hover {
     height: 60px;
     margin: 0 48px;
     padding: 5px 20px;       
-    background-color: var(--header-background-color);
+    background-color: var(--background-color);
 }
 
 .nav-items {
@@ -118,19 +118,20 @@ a:hover {
 .playing-field {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
+    align-items: center;
     flex-wrap: wrap;
     background-color: var(--background-color3);
-    height: 400px;
+    height: 500px;
     width: 600px;
     border-radius: 10px;
     perspective: 800px;
 }
 
 .memory-card {    
-    height: 30%;
-    width: 15%;    
-    margin: 10px;
+    height: 100px;
+    width: 80px;    
+    margin: 12px;
     position: relative;
     transform-style: preserve-3d;
     transition: transform .5s;
