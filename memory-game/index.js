@@ -33,6 +33,9 @@ function newGame () {
     setDeckSize(localStorage.getItem('levelGame'));
     localStorage.setItem('totalSteps', 0);
     localStorage.setItem('flippedCards', 0);
+    flippedCards = 0;
+    card1 = 0;
+    card2 = 0;
 }
 
 function resetActiveItem() {
@@ -51,21 +54,15 @@ function getLevelGame (element) {
 }
 
 function setDeckSize(levelGame) {
-    console.log('Выбрана игра на ' + levelGame + ' карточек');  
+    //console.log('Выбрана игра на ' + levelGame + ' карточек');  
     if (levelGame < 18) {        
         playingField.style.width = '500px';
     }
-
-    else {playingField.style.width = '600px';}
-
-
-
-    
-
+    else {playingField.style.width = '600px';} 
     getArray();
-    console.log(deck);
+    //console.log(deck);
     shuffleDeck();
-    console.log(deck);
+    //console.log(deck);
     let i = 0;
     while (i < localStorage.getItem('levelGame')) {              
         const face = `<img class="card-face" src="./assets/svg/face/${deck[i]}.svg" alt="image">`;
@@ -86,57 +83,69 @@ function clearDesk() {
 const cards = document.querySelectorAll('.playing-field');
 
 function flipCard(event) {
-    checkFlippedCards();
-    console.log(flippedCards + ' перевернутых не заблокированных');
+    //console.log(event.target);
+    if (!event.target.matches('img')) return;
+    //console.log(event.target.parentNode);
+
     if (flippedCards >= 2) {
         unFlip();
         return;
     }
-    //console.log(event.target);
-    if (!event.target.matches('img')) return;
-    //console.log('flip');
-    //console.log(event.target.parentNode);
-    if (event.target.parentNode.classList !== 'flip')
-    event.target.parentNode.classList.add('flip');
-    if (card1 === 0) {card1 = event.target.parentNode.dataset.item}
-    else if (card2 === 0) {card2 = event.target.parentNode.dataset.item};
-    localStorage.setItem('totalSteps', (localStorage.getItem('totalSteps') * 1) + 1);
+        
+    if (!event.target.parentNode.classList.contains('flip')){
+        event.target.parentNode.classList.add('flip');
+        //console.log('перевернули карту');
+        
+        localStorage.setItem('totalSteps', (localStorage.getItem('totalSteps') * 1) + 1);
+        if (card1 === 0) {
+            card1 = event.target.parentNode.dataset.item;
+        }
+        else if (card2 === 0) {
+            card2 = event.target.parentNode.dataset.item; 
+            checkEndGame();      
+        };
+    };    
+    
+    checkFlippedCards();
+    //console.log(flippedCards + ' перевернутых не заблокированных');
+
+
 }
 
 cards.forEach(card => {card.addEventListener('click', flipCard)});
 
 function checkFlippedCards() {
-    //flippedCards = 0;
-    //document.querySelectorAll('.memory-card').forEach(flipped => {
-    //    if (flipped.dataset.block === '1')
-    //    flippedCards = flippedCards + 1;
-    //});
-    //console.log(flippedCards + ' 1');
-    ///console.log(localStorage.getItem('levelGame') + ' 2');
-    //if (flippedCards === localStorage.getItem('levelGame')){
-    //    alert('Вы выиграли за ' + (localStorage.getItem('totalSteps')) + ' шагов');
-    //}
-
     flippedCards = 0;
     document.querySelectorAll('.flip').forEach(flipped => {
         if (flipped.dataset.block === '0') {
         flippedCards = flippedCards + 1;
-        console.log(flippedCards);
+        //console.log(flippedCards);
         }
     });
     return(flippedCards);
 }
 
+function checkEndGame () {
+    if (card1 === card2) {
+        localStorage.setItem('flippedCards', 0);
+        document.querySelectorAll('.memory-card').forEach(element => {
+            if (element.classList.contains('flip')) {
+                element.dataset.block = '1';
+                localStorage.setItem('flippedCards', localStorage.getItem('flippedCards')*1 + 1);
+            }
+        })
+        if (localStorage.getItem('flippedCards') === localStorage.getItem('levelGame')) {
+            alert('Вы выиграли затратив ' + localStorage.getItem('totalSteps') + ' шагов');    
+        }
+    }
+}
+
 function unFlip() {
     document.querySelectorAll('.memory-card').forEach(element => {
-        if (card1 === card2) {
-            element.dataset.block = '1';
-            localStorage.setItem('flippedCards', localStorage.getItem('flippedCards')*1 + 1);
-        }
         if (element.dataset.block === '0') {
-        element.classList.remove('flip');
+            element.classList.remove('flip');
         }
-    });
+    });   
     flippedCards = 0;
     card1 = 0;
     card2 = 0;
