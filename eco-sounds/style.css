@@ -1,0 +1,145 @@
+:root {
+    --background-color: #000;
+    --color-active: #bbac81;
+    --font-color: #fff;
+    --font-family: 'Roboto', sans-serif;
+    --font-size: 20px;
+    --filter-color: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+    contrast(87%);    
+}
+
+/* Normalize --start */
+*,
+*::before, 
+*::after {
+    padding: 0;
+    margin: 0; 
+    border: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: var(--font-color);
+    transition: .7s;
+}
+
+a:hover {
+    filter: var(--filter-color);
+}
+
+ul, ol, li {
+    list-style: none;
+}
+
+img {
+    vertical-align: top;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: inherit;
+    font-size: inherit;
+}
+/* Normalize --stop */
+
+body {
+    min-height: 100vh;    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--background-color);
+    color: var(--font-color);
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    margin: 0 48px;
+    padding: 5px 20px;
+}
+
+.logo {
+    width: 2.5em;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.logo:hover {
+    filter: var(--filter-color);
+}
+
+.logo.active:hover {
+    filter: none;
+}
+
+.nav-items {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.nav-item {
+    padding: 0 20px;
+    cursor: pointer;
+    transition: .7s;
+}
+
+.nav-item:hover {
+    color: var(--color-active);
+}
+
+.active {
+    filter: var(--filter-color);
+}
+
+.main, #main{
+    background-image: url('./assets/img/forest.jpg');
+    background-size: cover;
+    max-height: calc(100vh - 120px);
+    overflow: hidden;
+    flex: 1 1 auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.player-btn {
+    background-size: contain;
+    background-repeat: no-repeat; 
+    height: 8em;
+    transition: .7s;
+}
+
+.player-btn:hover {
+    filter: brightness(80%);    
+    transform: rotate3d(1, 2.0, 3.0, 360deg);
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    margin: 0 48px;
+    padding: 5px 20px;
+}
+
+.footer-items {
+    display: flex;
+    flex-direction: row;
+}
+
+.footer-item {
+    padding-right: 20px;
+}
+
+.rss-logo {
+    height: 50px;    
+}
