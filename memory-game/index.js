@@ -108,8 +108,6 @@ function flipCard(event) {
     
     checkFlippedCards();
     //console.log(flippedCards + ' перевернутых не заблокированных');
-
-
 }
 
 cards.forEach(card => {card.addEventListener('click', flipCard)});
